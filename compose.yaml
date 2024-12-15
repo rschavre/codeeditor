@@ -4,15 +4,15 @@ networks:
     driver: bridge
 
 services:
-  # frontend:
-  #   build:
-  #     context: ./client
-  #   environment:
-  #     - backendport=5000
-  #   ports:
-  #     - "3000:80"
-  #   networks:
-  #     - code-editor-network
+  frontend:
+    build:
+      context: ./frontend
+    environment:
+      - backendport=5000
+    ports:
+      - "3000:3000"
+    networks:
+      - code-editor-network
 
   backend:
     build:
