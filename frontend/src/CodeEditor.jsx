@@ -10,7 +10,7 @@ const CodeEditor = () => {
   // Store code for each language
   const code = useRef({
     javascript: "// Write your JavaScript code here...",
-    python: "# Write your Python code here...",
+    python: "# Write your Python code here...\nprint(\"hi\")",
     java: "// Write your Java code here...",
   });
 

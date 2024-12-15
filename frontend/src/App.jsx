@@ -32,7 +32,9 @@ function App() {
         Click on the Vite and React logos to learn more
       </p> */}
       <h1>Code Editor</h1>
+      <div style={{width:"100vh"}}>
       <CodeEditor />
+      </div>
     </>
   )
 }

@@ -38,35 +38,35 @@ services:
       - "5000:5000"
     networks:
       - code-editor-network
-  #   depends_on:
-  #     - executor
+    depends_on:
+      - executor
 
-  # executor:
-  #   # internal service used by backend, no need to open it to the world...
-  #   container_name: executor
-  #   # restart: always
-  #   build:
-  #     context: ./execenv
-  #   environment:
-  #     - appname=executor
-  #     - exposeport=1234
-  #   # volumes:
-  #   #   - ./execenv/.:/app
-  #   develop:
-  #     watch:
-  #       - action: sync
-  #         path: ./execenv
-  #         target: /app
-  #   expose:
-  #     - "1234"
-  #   # ports:
-  #   #   - "5001:1234"
-  #   cap_drop: # Drop all unnecessary capabilities
-  #     - ALL
-  #   security_opt:
-  #     - no-new-privileges:true
-  #   read_only: true
-  #   mem_limit: 128m
-  #   cpus: "0.5"
-  #   networks:
-  #     - code-editor-network
+  executor:
+    # internal service used by backend, no need to open it to the world...
+    container_name: executor
+    # restart: always
+    build:
+      context: ./execenv
+    environment:
+      - appname=executor
+      - exposeport=1234
+    # volumes:
+    #   - ./execenv/.:/app
+    develop:
+      watch:
+        - action: sync
+          path: ./execenv
+          target: /app
+    expose:
+      - "1234"
+    # ports:
+    #   - "5001:1234"
+    cap_drop: # Drop all unnecessary capabilities
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    mem_limit: 128m
+    cpus: "0.5"
+    networks:
+      - code-editor-network

@@ -6,7 +6,7 @@ const backendport = import.meta.env.backendport || 5001
 const postPythonCode = async (code) => {
     try {
       const response = await axios.post(
-        `http://backend:${backendport}/execute`, { code },
+        `http://backend:${backendport}/api/execute`, { code:code },
         { // Axios options
           timeout: 5000, // Timeout in milliseconds (5 seconds)
           headers: {
