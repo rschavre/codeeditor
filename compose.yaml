@@ -1,3 +1,4 @@
+# uncomment develop: and dockerfile: Dockerfile.dev to start developement , else run
 name: code-editor-pipeline
 networks:
   code-editor-network:
@@ -7,14 +8,15 @@ services:
   frontend:
     build:
       context: ./frontend
+      # dockerfile: Dockerfile.dev
       dockerfile: Dockerfile.dev
     environment:
       - backendport=5000
-    develop:
-      watch:
-        - action: sync
-          path: ./frontend
-          target: /app
+    # develop:
+    #   watch:
+    #     - action: sync
+    #       path: ./frontend
+    #       target: /app
     ports:
       - "5173:5173"
     networks:
@@ -52,11 +54,11 @@ services:
       - exposeport=1234
     # volumes:
     #   - ./execenv/.:/app
-    develop:
-      watch:
-        - action: sync
-          path: ./execenv
-          target: /app
+    # develop:
+    #   watch:
+    #     - action: sync
+    #       path: ./execenv
+    #       target: /app
     expose:
       - "1234"
     # ports:
