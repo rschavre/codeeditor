@@ -53,7 +53,7 @@ const CodeEditor = () => {
 
   
   // Execute the code in the editor (basic eval for JavaScript, custom logic for others)
-  const handleRunCode = () => {
+  const handleRunCode = async () => {
     handleEditorChange();
     const currentCode = code.current[stateLanguage];
     try {
@@ -64,7 +64,10 @@ const CodeEditor = () => {
       }
       else if (stateLanguage === "python") {
         // Execute Python code
-        postPythonCode(currentCode).then((output) => result = output).catch((error)=> result=error);
+        // result = await postPythonCode(currentCode).then((output) => result = output).catch((error)=> result=error);
+        let res = await postPythonCode(currentCode);
+        result = res?.output?.output;
+
       } else {
         // In real scenarios, you would need to send the code to the backend to execute other languages
         result = "Execution only supported for JavaScript in this demo.";
