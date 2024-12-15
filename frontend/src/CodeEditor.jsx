@@ -69,8 +69,8 @@ const CodeEditor = () => {
         result = res?.output?.output;
 
       } else {
-        // In real scenarios, you would need to send the code to the backend to execute other languages
-        result = "Execution only supported for JavaScript in this demo.";
+        // to execute other languages
+        result = "Execution only supported for JavaScript, Python";
       }
       setOutput(result);
     } catch (error) {
