@@ -1,0 +1,16 @@
+{
+  "name": "codeeditorbackend",
+  "version": "1.0.0",
+  "description": "backend sends request to actual execution engine, backend can also deal with auth, databases etc",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rajesh C.",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "express": "^4.21.2"
+  }
+}
