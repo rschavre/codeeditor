@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as monaco from "monaco-editor";
 import postPythonCode from "./backendController/pythonBackend";
+import './Code.css'
 
 const CodeEditor = () => {
     
@@ -24,6 +25,7 @@ const CodeEditor = () => {
         value: code.current[stateLanguage], // Set initial code based on language
         language: stateLanguage, // Set initial language
         theme: "vs-dark", // Set default theme
+
         automaticLayout: true, // Auto adjust layout
       });
     }
@@ -79,8 +81,12 @@ const CodeEditor = () => {
   };
 
   return (
-    <div style={{ width: "90vh", height: "600px" }}>
-      <div ref={editorRef} style={{ height: "500px" }}></div>
+    <div id="main-container" >
+      <div id="left-container">
+      <div ref={editorRef} style={{ minHeight: "324px" ,height:"80vh"}}></div>
+      </div>
+      <div id="right-container">
+      <div id="language-selector">
 
       <div style={{ marginTop: "20px" }}>
         <button style={{ color: stateLanguage=="javascript"?"red":"white"}} onClick={() => handleLanguageChange("javascript")}>JavaScript</button>
@@ -91,13 +97,18 @@ const CodeEditor = () => {
       <div style={{ marginTop: "20px" }}>
         <button onClick={handleRunCode}>Run Code</button>
       </div>
+      </div>
 
       {output && (
-        <div style={{ marginTop: "20px" }}>
-          <h3>Output:</h3>
+        <>
+        <h3>Output:</h3>
+        <div id="output-view">
           <pre>{output}</pre>
         </div>
+        </>
       )}
+      </div>
+
     </div>
   );
 };

@@ -12,11 +12,11 @@ services:
       dockerfile: Dockerfile.dev
     environment:
       - backendport=5000
-    # develop:
-    #   watch:
-    #     - action: sync
-    #       path: ./frontend
-    #       target: /app
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend
+          target: /app
     ports:
       - "5173:5173"
     networks:
